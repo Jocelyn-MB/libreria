@@ -1,0 +1,78 @@
+<div class="catalogo-container">
+    <h1 class="catalogo-title">📚 Catálogo de Libros 📚</h1>
+    <p class="catalogo-subtitle">
+        Explora nuestra colección de libros de diversos géneros, autores y épocas.
+    </p>
+
+    <div class="form-section">
+        <p>
+            <label>Título:</label>
+            <input type="text" class="form-control" [(ngModel)]="libro.titulo" />
+        </p>
+        <p>
+            <label>Autor:</label>
+            <select class="form-control" [(ngModel)]="libro.autorId">
+                @for (autor of autores; track autor.id) {
+                    <option [value]="autor.id">{{autor.nombre}}</option>
+                }
+            </select>
+        </p>
+        <p>
+            <label>Año de Publicación:</label>
+            <input type="number" class="form-control" [(ngModel)]="libro.year" />
+        </p>
+        <p>
+            <label>Género:</label>
+            <input type="text" class="form-control" [(ngModel)]="libro.genero" />
+        </p>
+        <p>
+            <label>Origen:</label>
+            <input type="text" class="form-control" [(ngModel)]="libro.origen" />
+        </p>
+        <p>
+            <label>Crítica:</label>
+            <input type="text" class="form-control" [(ngModel)]="libro.critica" />
+        </p>
+
+        <div class="button-group">
+            <button type="button" class="btn btn-primary" (click)="insertarLibro()">➕ Insertar</button>
+            <button type="button" class="btn btn-warning" (click)="updateLibro()">✏️ Modificar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteLibro()">❌ Eliminar</button>
+        </div>
+    </div>
+
+    <hr />
+    <h4 class="section-title">📘 Listado de Libros</h4>
+
+    <div class="table-container">
+        <table class="table table-bordered border-primary libros-table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Año</th>
+                    <th>Género</th>
+                    <th>Origen</th>
+                    <th>Crítica</th>
+                    <th>Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(libro of librosFiltro; track libro.id){
+                    <tr>
+                        <td>{{ libro.titulo }}</td>
+                        <td>{{ libro.autorNombre }}</td>
+                        <td>{{ libro.year }}</td>
+                        <td>{{ libro.genero }}</td>
+                        <td>{{ libro.origen }}</td>
+                        <td>{{ libro.critica }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"
+                                (click)="selectLibro(libro)">📖 Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,226 @@
+/* Variables de colores base */
+:root {
+    --color-primary: #0066dd;
+    --color-primary-dark: #0050b3;
+    --color-bg-light: #f5f5f5;
+    --color-white: #ffffff;
+    --color-shadow-light: rgba(0, 0, 0, 0.06);
+    --text-dark: #222;
+    --text-light: #555;
+}
+
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--text-dark);
+}
+
+/* Encabezado con gradiente azul */
+.header {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-white);
+    padding: 40px 30px;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Círculo decorativo en encabezado */
+.header::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+/* Contenedor de tarjetas */
+.card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+/* Estilo de tarjetas */
+.card {
+    background: var(--color-white);
+    border-radius: 14px;
+    padding: 25px 35px;
+    box-shadow: 0 10px 15px var(--color-shadow-light);
+    text-align: center;
+    min-width: 220px;
+    transition: transform 0.2s ease;
+}
+
+/* Animación al hacer hover */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Número destacado */
+.card h2 {
+    font-size: 2.2rem;
+    margin: 0 0 8px;
+    color: var(--text-dark);
+}
+
+/* Texto descriptivo */
+.card p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.catalogo-container {
+    margin: 20px;
+    background-color: #f0f7fb; /* Azul muy claro */
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.catalogo-title {
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.catalogo-subtitle {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.form-section {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.form-section p {
+    margin-bottom: 15px;
+}
+
+.form-section label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    color: var(--dark-color);
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: var(--primary-color);
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.table-container {
+    overflow-x: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.libros-table thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.libros-table th,
+.libros-table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+/* 🌕 Estilo neumórfico para entradas, selects y botones */
+.form-control {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 4px 4px 10px #d1d9e6, -4px -4px 10px #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus, select:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
+    background-color: #e8e8e8;
+}
+
+/* 🌗 Botones con sombra suave */
+.btn {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn:hover {
+    box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
+    background-color: #e0e0e0;
+}
+
+/* 🧊 Neumorfismo para la tabla */
+.table-container {
+    background: #f0f0f0;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 4px 4px 12px #d1d9e6, -4px -4px 12px #ffffff;
+}
+
+.libros-table {
+    background: #f9f9f9;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.libros-table th {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 10px;
+}
+
+.libros-table td {
+    background-color: #fff;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.04);
+}

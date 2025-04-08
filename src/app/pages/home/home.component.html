@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca UTSJR</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white !important;
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+        
+        .features-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .features-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .role-badge {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-label {
+            font-size: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-color);
+        }
+        
+        .btn-logout {
+            transition: all 0.3s;
+        }
+        
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #searchInput {
+            transition: all 0.3s ease;
+            border: 1px solid #ced4da;
+        }
+        
+        #searchInput:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            border-color: #86b7fe;
+        }
+        
+        .counter-container {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h1 class="display-4 fw-bold">Biblioteca Digital UTSJR</h1>
+                        <p class="lead">Sistema integral de gestión bibliotecaria para administrar colecciones, préstamos y catálogos de manera eficiente.</p>
+                        <div class="d-flex mt-4">
+                            <button class="btn btn-light btn-lg me-2" routerLink="/libros">
+                                <i class="fas fa-book me-1"></i> Explorar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <img src="/api/placeholder/450/300" alt="Biblioteca Digital" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Counter -->
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="counter-container text-center">
+                        <div class="stats-counter">5,240</div>
+                        <div class="stats-label">Libros Disponibles</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-container text-center">
+                        <div class="stats-counter">1,832</div>
+                        <div class="stats-label">Autores</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-container text-center">
+                        <div class="stats-counter">347</div>
+                        <div class="stats-label">Préstamos Activos</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-container text-center">
+                        <div class="stats-counter">12,568</div>
+                        <div class="stats-label">Usuarios Registrados</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="container mb-5">
+            <h2 class="text-center mb-4">Características Principales</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card features-card">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4>Búsqueda Avanzada</h4>
+                            <p>Encuentra cualquier libro por título, autor, categoría o palabras clave con nuestro potente motor de búsqueda.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card features-card">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h4>Gestión de Préstamos</h4>
+                            <p>Control completo sobre préstamos, devoluciones y renovaciones con notificaciones automáticas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card features-card">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h4>Estadísticas e Informes</h4>
+                            <p>Genera reportes detallados sobre el uso de la biblioteca y comportamiento de los usuarios.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="container mb-5">
+            <h2 class="text-center mb-5">Nuestro Equipo</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Isai Julián González Gaspar" class="team-img">
+                        <h5>Isai Julián González Gaspar</h5>
+                        <span class="role-badge">Líder de Proyecto</span>
+                        <p class="mt-2">Coordinación general y arquitectura del sistema.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Yeimy Belen Huchim Onofre" class="team-img">
+                        <h5>Yeimy Belen Huchim Onofre</h5>
+                        <span class="role-badge">Diseñadora UI/UX</span>
+                        <p class="mt-2">Responsable de la experiencia de usuario e interfaz.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Jocelyn Magali Mancilla Blancas" class="team-img">
+                        <h5>Jocelyn Magali Mancilla Blancas</h5>
+                        <span class="role-badge">Desarrolladora Backend</span>
+                        <p class="mt-2">Implementación de APIs y lógica de negocio.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Ricardo Arturo Ramírez Cruz" class="team-img">
+                        <h5>Ricardo Arturo Ramírez Cruz</h5>
+                        <span class="role-badge">Desarrollador Frontend</span>
+                        <p class="mt-2">Programación de componentes y funcionalidades cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Books -->
+        <div class="container mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Libros Recientes</h2>
+                <a href="#" class="btn btn-outline-primary" routerLink="/libros">Ver todos</a>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/200/300" class="card-img-top" alt="Libro">
+                        <div class="card-body">
+                            <h5 class="card-title">Cien Años de Soledad</h5>
+                            <p class="card-text text-muted">Gabriel García Márquez</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponible</span>
+                                <button class="btn btn-sm btn-outline-primary">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/200/300" class="card-img-top" alt="Libro">
+                        <div class="card-body">
+                            <h5 class="card-title">El Principito</h5>
+                            <p class="card-text text-muted">Antoine de Saint-Exupéry</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponible</span>
+                                <button class="btn btn-sm btn-outline-primary">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/200/300" class="card-img-top" alt="Libro">
+                        <div class="card-body">
+                            <h5 class="card-title">Don Quijote de la Mancha</h5>
+                            <p class="card-text text-muted">Miguel de Cervantes</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-danger">Agotado</span>
+                                <button class="btn btn-sm btn-outline-secondary" disabled>Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/200/300" class="card-img-top" alt="Libro">
+                        <div class="card-body">
+                            <h5 class="card-title">La Metamorfosis</h5>
+                            <p class="card-text text-muted">Franz Kafka</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponible</span>
+                                <button class="btn btn-sm btn-outline-primary">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h5>Biblioteca UTSJR</h5>
+                        <p>Sistema de gestión bibliotecaria desarrollado por estudiantes de la Universidad Tecnológica de San Juan del Río.</p>
+                        <div class="mt-3">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h5>Enlaces Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none mb-2 d-block">Inicio</a></li>
+                            <li><a href="#" class="text-white text-decoration-none mb-2 d-block">Libros</a></li>
+                            <li><a href="#" class="text-white text-decoration-none mb-2 d-block">Autores</a></li>
+                            <li><a href="#" class="text-white text-decoration-none mb-2 d-block">Préstamos</a></li>
+                            <li><a href="#" class="text-white text-decoration-none mb-2 d-block">Equipo</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 mb-4">
+                        <h5>Contáctanos</h5>
+                        <address>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> Av. La Palma 125, Vista Hermosa, 76800 San Juan del Río, Qro.</p>
+                            <p><i class="fas fa-phone me-2"></i> (427) 129 2000</p>
+                            <p><i class="fas fa-envelope me-2"></i> bibliotecaªutsjr.edu.mx</p>
+                        </address>
+                    </div>
+                </div>
+                <hr class="bg-light">
+                <div class="text-center">
+                    <p>&copy; 2025 Biblioteca UTSJR. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Animación para contadores
+        window.addEventListener('DOMContentLoaded', () => {
+            const counterElements = document.querySelectorAll('.stats-counter');
+            
+            counterElements.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/,/g, ''));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current).toLocaleString();
+                        setTimeout(updateCounter, 10);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                counter.textContent = '0';
+                updateCounter();
+            });
+
+            // Efectos de hover para tarjetas
+            const cards = document.querySelectorAll('.features-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
+                });
+            });
+
+            // Efectos para barra de búsqueda
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.style.boxShadow = '0 0 15px rgba(13, 110, 253, 0.25)';
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+
+.catalogo-container {
+    background-color: #f9f4fd; /* Lila muy claro */
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid var(--color-primary);
+    margin: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.catalogo-title {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.catalogo-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-text);
+}
+
+.form-section {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.form-section p {
+    margin-bottom: 15px;
+}
+.form-section label {
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Tabla de autores */
+.authors-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.authors-table th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px;
+    text-align: left;
+}
+
+.authors-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 🌕 Estilo neumórfico para entradas, selects y botones */
+.form-control {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 4px 4px 10px #d1d9e6, -4px -4px 10px #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus, select:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
+    background-color: #e8e8e8;
+}
+
+/* 🌗 Botones con sombra suave */
+.btn {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn:hover {
+    box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
+    background-color: #e0e0e0;
+}
+
+/* 🧊 Neumorfismo para la tabla */
+.table-container {
+    background: #f0f0f0;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 4px 4px 12px #d1d9e6, -4px -4px 12px #ffffff;
+}
+
+.libros-table {
+    background: #f9f9f9;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.libros-table th {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 10px;
+}
+
+.libros-table td {
+    background-color: #fff;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.04);
+}

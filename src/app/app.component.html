@@ -1,0 +1,22 @@
+<!-- app.component.html -->
+<div class="app-container">
+    <!-- Menú de navegación - solo visible cuando el usuario está logueado -->
+    <nav class="navbar" *ngIf="isLoggedIn">
+      <div class="logo">Mi Biblioteca</div>
+      <ul class="nav-links">
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/libros" routerLinkActive="active">Libros</a></li>
+        <li><a routerLink="/autores" routerLinkActive="active">Autores</a></li>
+        <li><button (click)="logout()">Cerrar Sesión</button></li>
+      </ul>
+    </nav>
+  
+    <!-- Contenedor principal -->
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  
+    <footer class="footer">
+      <p>© 2025 Mi Biblioteca</p>
+    </footer>
+  </div>

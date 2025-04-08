@@ -1,0 +1,55 @@
+<div class="catalogo-container">
+    <h1 class="catalogo-title">📚 Catálogo de Autores 📚</h1>
+
+    <p class="catalogo-subtitle">
+        Explora información sobre tus autores favoritos: su vida, obras y legado literario.
+    </p>
+
+    <div class="form-section">
+        <p>
+            <label>Nombre: </label>
+            <input type="text" class="form-control" [(ngModel)]="autor.nombre" />
+        </p>
+        <p>
+            <label>Origen: </label>
+            <input type="text" class="form-control" [(ngModel)]="autor.origen" />
+        </p>
+        <p>
+            <label>Libros escritos: </label>
+            <input type="number" class="form-control" [(ngModel)]="autor.libescritos" />
+        </p>
+        <div class="button-group">
+            <button type="button" class="btn btn-primary" (click)="insertarAutor()">➕ Insertar</button>
+            <button type="button" class="btn btn-warning" (click)="updateAutor()">✏️ Modificar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteAutor()">❌ Eliminar</button>
+        </div>
+    </div>
+
+    <hr />
+
+    <h4>Lista de Autores</h4>
+    <table class="table table-bordered border-primary libros-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Origen</th>
+                <th>Libros escritos</th>
+                <th>Seleccionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(autor of autores; track autor.id){
+                <tr>
+                    <td>{{ autor.nombre }}</td>
+                    <td>{{ autor.origen }}</td>
+                    <td>{{ autor.libescritos }}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" (click)="selectAutor(autor)">
+                            Seleccionar ✍️
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
